@@ -27,6 +27,15 @@ def get_llm():
     return llm
 
 
+pdf_path = "uploaded_file.pdf"
+
+
+def save_file(file_bytes):
+    with open(pdf_path, "wb") as f:
+        f.write(file_bytes)
+    return f"Saved {pdf_path}"
+
+
 def get_index():
 
     # create embeddings for the index
@@ -35,8 +44,6 @@ def get_index():
         region_name="us-east-1",
     )  # Titan Embedding by default
 
-    # print(embeddings)
-    pdf_path = "2022-Shareholder-Letter.pdf"
     loader = PyPDFLoader(pdf_path)
 
     text_splitter = RecursiveCharacterTextSplitter(
