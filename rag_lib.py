@@ -7,6 +7,8 @@ from langchain.llms.bedrock import Bedrock
 
 # FAISS only work with python3.11
 
+last_uploaded_file = ""
+
 
 def get_llm():
 
